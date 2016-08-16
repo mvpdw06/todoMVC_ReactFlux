@@ -39,6 +39,7 @@ class TodoApp extends React.Component {
             />
             <InputField
               placeholder="enter your todo here."
+              className="new-todo"
               onSubmitEditing={TodoActions.createTodo}
             />
           </div>
@@ -48,6 +49,7 @@ class TodoApp extends React.Component {
               onUpdateTodo={TodoActions.updateTodo}
               onToggleTodo={TodoActions.toggleTodo}
               onDeleteTodo={TodoActions.deleteTodo}
+              onCompletedAllTodo={TodoActions.completedAllTodo}
             />
           </div>
           <Footer todoCount={todos.filter((todo) => !todo.completed).length} 

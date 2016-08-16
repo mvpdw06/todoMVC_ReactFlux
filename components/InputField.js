@@ -35,7 +35,6 @@ class InputField extends React.Component {
         value={this.state.value}
         onChange={this.handleChange}
         onKeyDown={this.handleKeyDown}
-        className="new-todo"
       />
     );
   }

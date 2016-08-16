@@ -1,4 +1,19 @@
+const { TodoStore } = window.App;
+
 class Footer extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      clearButtonVisible: TodoStore.GetClearCompletedVisible()
+    };
+  }
+
+  componentDidMount() {
+    this._removeChangeListener = TodoStore.addChangeListener(
+      () => this.setState({ clearButtonVisible: TodoStore.GetClearCompletedVisible() })
+    );
+  }
+
   render() {
     const {
       todoCount,
@@ -7,6 +22,9 @@ class Footer extends React.Component {
       onShowCompleted,
       onClearCompleted
     } = this.props;
+
+    const clearButton = this.state.clearButtonVisible ? <button className="clear-completed" onClick={() => onClearCompleted && onClearCompleted()} >Clear completed</button> : null;
+
     return (
 		<div className="footer">
 			<span className="todo-count">
@@ -17,9 +35,7 @@ class Footer extends React.Component {
 				<li><a href="javascript: void(0)" onClick={() => onShowActive && onShowActive()} >Active</a></li>
 				<li><a href="javascript: void(0)" onClick={() => onShowCompleted && onShowCompleted()} >Completed</a></li>
 			</ul>
-			<button className="clear-completed" onClick={() => onClearCompleted && onClearCompleted()} >
-				Clear completed
-			</button>
+			{clearButton}
 		</div>
     );
   }

@@ -57,5 +57,10 @@ window.App.TodoActions = {
     AppDispatcher.dispatch({
       type: ActionTypes.CLEAR_COMPLETED_TODO
     });
+  },
+  completedAllTodo(){
+    AppDispatcher.dispatch({
+      type: ActionTypes.COMPLETED_ALL_TODO
+    })
   }
 };
