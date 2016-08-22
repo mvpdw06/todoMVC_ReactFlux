@@ -38,19 +38,10 @@ window.App.TodoActions = {
       id
     });
   },
-  showAllTodo(){
+  switchShowTodo(showType){
     AppDispatcher.dispatch({
-      type: ActionTypes.SHOW_ALL_TODO
-    });
-  },
-  showActiveTodo(){
-    AppDispatcher.dispatch({
-      type: ActionTypes.SHOW_ACTIVE_TODO
-    });
-  },
-  showCompletedTodo(){
-    AppDispatcher.dispatch({
-      type: ActionTypes.SHOW_COMPLETED_TODO
+      type: ActionTypes.SWITCH_SHOW_TODO,
+      showType
     });
   },
   clearCompletedTodo(){

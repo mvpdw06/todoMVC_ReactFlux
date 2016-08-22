@@ -53,9 +53,7 @@ class TodoApp extends React.Component {
             />
           </div>
           <Footer todoCount={todos.filter((todo) => !todo.completed).length} 
-                  onShowAll={TodoActions.showAllTodo}
-                  onShowActive={TodoActions.showActiveTodo}
-                  onShowCompleted={TodoActions.showCompletedTodo}
+                  onSwitchShowTodo={TodoActions.switchShowTodo}
                   onClearCompleted={TodoActions.clearCompletedTodo}
           />
         </div>

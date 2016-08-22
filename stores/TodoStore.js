@@ -42,7 +42,7 @@ const _deleteTodo = (todos, id) => {
 
 const _changeShowTodo = (todos, showType) => {
   let target = [];
-  if (showType === ShowTypes.ALL) {
+  if (showType === ShowTypes.All) {
     target = todos.filter((x) => x);
   }
   else if (showType === ShowTypes.Active) {
@@ -125,16 +125,8 @@ window.App.TodoStore = {
         _showTodo = _todos;
         _emitter.emit(CHANGE_EVENT);
         break;
-      case ActionTypes.SHOW_ALL_TODO:
-        _showTodo = _changeShowTodo(_todos, ShowTypes.ALL);
-        _emitter.emit(CHANGE_EVENT);
-        break;
-      case ActionTypes.SHOW_ACTIVE_TODO:
-        _showTodo = _changeShowTodo(_todos, ShowTypes.Active);
-        _emitter.emit(CHANGE_EVENT);
-        break;
-      case ActionTypes.SHOW_COMPLETED_TODO:
-        _showTodo = _changeShowTodo(_todos, ShowTypes.Completed);
+      case ActionTypes.SWITCH_SHOW_TODO:
+        _showTodo = _changeShowTodo(_todos, action.showType);
         _emitter.emit(CHANGE_EVENT);
         break;
       case ActionTypes.CLEAR_COMPLETED_TODO:

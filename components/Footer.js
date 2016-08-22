@@ -1,4 +1,5 @@
-const { TodoStore } = window.App;
+const { TodoStore,
+        ShowTypes } = window.App;
 
 class Footer extends React.Component {
   constructor(props, context) {
@@ -17,9 +18,7 @@ class Footer extends React.Component {
   render() {
     const {
       todoCount,
-      onShowAll,
-      onShowActive,
-      onShowCompleted,
+      onSwitchShowTodo,
       onClearCompleted
     } = this.props;
 
@@ -31,9 +30,9 @@ class Footer extends React.Component {
 				<strong>{todoCount} item left.</strong>
 			</span>
 			<ul className="filters">
-				<li><a href="javascript: void(0)" onClick={() => onShowAll && onShowAll()} >All</a></li>
-				<li><a href="javascript: void(0)" onClick={() => onShowActive && onShowActive()} >Active</a></li>
-				<li><a href="javascript: void(0)" onClick={() => onShowCompleted && onShowCompleted()} >Completed</a></li>
+				<li><a href="javascript: void(0)" onClick={() => onSwitchShowTodo && onSwitchShowTodo(ShowTypes.All)} >All</a></li>
+				<li><a href="javascript: void(0)" onClick={() => onSwitchShowTodo && onSwitchShowTodo(ShowTypes.Active)} >Active</a></li>
+				<li><a href="javascript: void(0)" onClick={() => onSwitchShowTodo && onSwitchShowTodo(ShowTypes.Completed)} >Completed</a></li>
 			</ul>
 			{clearButton}
 		</div>
