@@ -1,6 +1,6 @@
-# todoMVC_ReactFlux_withVueCSS 
+# todoMVC_ReactFlux
 
-React Flux todoMVC with Vue.js CSS. 
+todoMVC with React Flux. 
 
 :wrench: :nut_and_bolt: :hocho: :scissors: :pencil2:
 
